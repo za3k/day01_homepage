@@ -24,14 +24,15 @@ FIELDS = {
         ("Email", "jsmith@gmail.com", link("mailto:{}")),
         ("Location", "austin, texas", text),
         ("Phone_Number", "(+1) 555-555-5555", link("tel:{}")),
-        #("Facebook_ID", 
-        #"Steam_ID": None,
-        #"Discord": None,
-        #"Snapchat": None,
-        #"Instagram": None,
+        ("Discord", "John#1234", text),
+        ("Facebook_ID", "john.smith.123456", link("https://www.facebook.com/{}/")),
         ("Github", "codername", link("http://github.com/{}", "github.com/{}")),
-        ("Twitter", "abird (no @)", link("http://twitter.com/{}", "@{}")),
+        ("Instagram", "johnpics", link("https://www.instagram.com/{}")),
         ("IRC", "irc_username", text),
+        ("Linked_In", "", link("{}", "...")),
+        ("Steam_ID", "12345678", link("https://steamcommunity.com/profiles/{}")),
+        ("Snapchat", "john1", text), # I don't use it, no links?
+        ("Twitter", "abird (no @)", link("http://twitter.com/{}", "@{}")),
         ("Link_1", "", link()),
         ("Link_2", "", link()),
         ("Link_3", "", link()),
@@ -50,12 +51,13 @@ def combine(user_id):
     for type_, fields in FIELDS.items():
         r = []
         for text_field, d, formatter in fields:
+            v = person.get(text_field, "")
             r.append({
                 "key": text_field,
                 "display": text_field.replace("_", " "),
                 "example": d,
-                "value": person[text_field],
-                "displayValue": formatter(person[text_field]),
+                "value": v,
+                "displayValue": formatter(v),
             })
         result[type_] = r
     return result

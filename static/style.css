@@ -14,6 +14,26 @@ section.content {
     margin: 10px;
 }
 
+.edit .form-group {
+    margin-left: 10px;
+}
+
+.homepage {
+    border: 2px solid;
+    width: 100%;
+    border-radius: 10px;
+}
+.homepage td {
+    padding: 5px;
+    margin: 5px;
+    background-color: lightyellow;
+}
+
+.homepage .field-name {
+    font-weight: bold;
+    width: min-content;
+}
+
 /* -- All Hack-A-Day projects -- */
 .about {
     white-space: pre-wrap;

@@ -6,21 +6,23 @@
 
 {% block content %}
 <form method="post" class="edit">
+    <table class="homepage">
     {% for field in fields.input %}
     {% if field.value != "" %}
-    <div class="form-group">
-        <label for="{{ field.key }}">{{ field.display }}</label>
-        <span>{{ field.displayValue | safe }}</span>
-    </div>
+    <tr>
+        <td><span class="field-name">{{ field.display }}</label></td>
+        <td><span>{{ field.displayValue | safe }}</span></td>
+    </tr>
     {% endif %}
 	{% endfor %}
 	{% for field in fields.textarea %}
     {% if field.value != "" %}
-    <div class="form-group">
-        <label for="{{ field.key }}">{{ field.display }}</label>
-        <span>{{ field.displayValue | safe }}</span>
-    </div>
+    <tr>
+        <td><span class="field-name">{{ field.display }}</label></td>
+        <td><span>{{ field.displayValue | safe }}</span></td>
+    </tr>
     {% endif %}
 	{% endfor %}
+    </table>
 </form>
 {% endblock %}
