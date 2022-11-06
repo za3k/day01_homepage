@@ -5,6 +5,7 @@ Hack-A-Day is a project I'm doing in November, where I try to make 30 new projec
 This lets you make a custom personal homepage for yourself, or view the homepages of others.
 
 ![Screenshot](screenshot.png)
+![Screenshot](screenshot2.png)
 
 Demo available at [here](https://tilde.za3k.com/hackaday/homepage).
 
