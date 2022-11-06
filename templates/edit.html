@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Edit homepage{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" class="edit">
+    {% for field in fields.input %}
+    <div class="form-group homepage-form">
+        <label for="{{ field.key }}">{{ field.display }}</label>
+        <input class="form-control {{ field.key }}" name="{{ field.key }}" id="{{ field.key }}" placeholder="{{ field.example }}" value="{{ field.value }}"/>
+    </div>
+	{% endfor %}
+	{% for field in fields.textarea %}
+    <div class="form-group">
+        <label for="{{ field.key }}">{{ field.display }}</label>
+        <textarea class="form-control {{ field.key }}" name="{{ field.key }}" id="{{ field.key }}" placeholder="{{ field.example }}">{{ field.value }}</textarea>
+    </div>
+	{% endfor %}
+    <input class="btn btn-primary" type="submit" name="submit" value="Edit Homepage">
+</form>
+{% endblock %}

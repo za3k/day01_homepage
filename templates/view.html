@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}{{ user_id }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" class="edit">
+    {% for field in fields.input %}
+    {% if field.value != "" %}
+    <div class="form-group">
+        <label for="{{ field.key }}">{{ field.display }}</label>
+        <span>{{ field.displayValue | safe }}</span>
+    </div>
+    {% endif %}
+	{% endfor %}
+	{% for field in fields.textarea %}
+    {% if field.value != "" %}
+    <div class="form-group">
+        <label for="{{ field.key }}">{{ field.display }}</label>
+        <span>{{ field.displayValue | safe }}</span>
+    </div>
+    {% endif %}
+	{% endfor %}
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn3 for hackaday-05-paste
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/hackaday/day05_paste
+ExecStart=/bin/gunicorn3 -e SCRIPT_NAME=/hackaday/paste --bind 0.0.0.0:8005 app:app
+
+[Install]
+WantedBy=multi-user.target
